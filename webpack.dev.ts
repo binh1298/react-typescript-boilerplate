@@ -1,11 +1,11 @@
-const { merge } = require('webpack-merge');
-const common = require('./webpack.common.js');
-const path = require('path');
+const { merge: mergeDev } = require('webpack-merge');
+const commonDev = require('./webpack.common.ts');
+const pathDev = require('path');
 
-module.exports = merge(common, {
+module.exports = mergeDev(commonDev, {
   mode: 'development',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: pathDev.resolve(__dirname, 'build'),
     filename: 'bundle.js',
     publicPath: '/',
   },
