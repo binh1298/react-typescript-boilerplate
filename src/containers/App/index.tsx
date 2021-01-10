@@ -5,7 +5,7 @@ export const App = (): React.ReactElement => {
   const [appName, setAppName] = React.useState<string>('');
 
   return <div>
-    <DefaultLabel />
+    <DefaultLabel label="App Name: " />
     <input
       value={appName}
       onChange={

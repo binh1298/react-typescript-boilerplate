@@ -1,4 +1,6 @@
 const { merge: mergeDev } = require('webpack-merge');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const webpackDev = require('webpack');
 const commonDev = require('./webpack.common.ts');
 const pathDev = require('path');
 
@@ -9,6 +11,10 @@ module.exports = mergeDev(commonDev, {
     filename: 'bundle.js',
     publicPath: '/',
   },
+  plugins: [
+    new webpackDev.HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin(),
+  ].filter(Boolean),
   devtool: 'eval-source-map',
   devServer: {
     contentBase: './build',
